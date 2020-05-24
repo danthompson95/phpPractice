@@ -5,6 +5,23 @@
     public $name;
     public $color = "red";
     public $hasSunRoof = true;
+    public $fuelTank;
+
+    // Add fuel to the fuel tank when we fill it
+    public function fill($float) {
+      $this -> fuelTank += $float;
+
+      return $this;
+    }
+
+    // Subtract fuel from the tank as it drives
+    public function empty($float) {
+      $miles = $float;
+      $litres = $miles/50;
+      $this -> fuelTank -= ($litres);
+
+      return $this;
+    }
 
     // Method that returns text
     public function beep() {
@@ -27,4 +44,12 @@
   echo $bmw -> beep(); 
   echo "<br>";
   echo $mercedes -> beep(); 
+  echo "<br>";
+
+  // Add 10 litres of fuel then drive 20 miles
+  // Show how many litres are left
+  $fuelTank = $bmw -> fill(10) -> empty(20) -> fuelTank;
+
+  // Echo results
+  echo "The number of litres left in the tank: " . $fuelTank . "l."
 ?>
