@@ -8,7 +8,7 @@
 
     // Method that returns text
     public function beep() {
-      return "beep";
+      return "I am a <i>" . $this -> name . "</i>, and I am <i>" . $this -> color . "</i>";
     }
   }
 
@@ -16,27 +16,15 @@
   $bmw = new Car();
   $mercedes = new Car();
 
-  // Echo values from the class
-  echo $bmw -> color;
-  echo "<br />";
-  echo $mercedes -> color;
-  echo "<br />";
-
-  // Alter some values
-  $bmw -> color = "blue";
+  // Alter properties
   $bmw -> name = "BMW";
-  $mercedes -> name = "Mercedes Benz";
+  $bmw -> color = "green";
 
-  // Echo the new altered values from the class
-  echo $bmw -> color;
-  echo "<br />";
-  echo $mercedes -> color;
-  echo "<br />";
-  echo $bmw -> name;
-  echo "<br />";
-  echo $mercedes -> name;
-  echo "<br />";
+  $mercedes -> name = "Mercedes Benz";
+  $mercedes -> color = "purple";
 
   // Accessing the method
-  echo $bmw -> beep(); // Beep
+  echo $bmw -> beep(); 
+  echo "<br>";
+  echo $mercedes -> beep(); 
 ?>
