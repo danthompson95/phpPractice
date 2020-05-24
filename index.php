@@ -27,6 +27,27 @@
     public function beep() {
       return "I am a <i>" . $this -> name . "</i>, and I am <i>" . $this -> color . "</i>";
     }
+
+    // Private Practice
+    // Making a private property
+    private $model;
+
+    // Making a setter to allow access from outside the class
+    public function setModel($model) {
+      // validating that allowed models make it through
+      $allowedModels = array("430", "A-Class");
+
+      if (in_array($model, $allowedModels)) {
+        $this -> model = $model;
+      } else {
+        $this -> model = "model not in list";
+      }
+    }
+
+    // Making a getter to get the value after
+    public function getModel() {
+      return "This car model is " . $this -> model . ".";
+    }
   }
 
   // Creating Instances of the class
@@ -41,8 +62,8 @@
   $mercedes -> color = "purple";
 
   // Accessing the method
-  echo $bmw -> beep(); 
-  echo "<br>";
+  //echo $bmw -> beep(); 
+  //echo "<br>";
   echo $mercedes -> beep(); 
   echo "<br>";
 
@@ -51,5 +72,11 @@
   $fuelTank = $bmw -> fill(10) -> empty(20) -> fuelTank;
 
   // Echo results
-  echo "The number of litres left in the tank: " . $fuelTank . "l."
+  echo "The number of litres left in the tank: " . $fuelTank . "l.";
+  echo "<br>";
+  
+  // Using getter and setters
+  $mercedes -> setModel("A-Class");
+  echo $mercedes -> getModel();
+  echo "<br>";
 ?>
